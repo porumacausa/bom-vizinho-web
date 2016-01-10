@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('projects')
+    .module('bomVizinhoWeb')
     .constant('moment', moment);
 
 })();
