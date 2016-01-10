@@ -3,19 +3,20 @@
 
   describe('controllers', function(){
     var vm;
-    var $timeout;
+    var $rootScope;
 
     beforeEach(module('bomVizinhoWeb'));
-    beforeEach(inject(function(_$controller_, _$timeout_, _webDevTec_) {
-      spyOn(_webDevTec_, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
+    beforeEach(inject(function(_$controller_, _$q_, _$rootScope_, _webDevTec_) {
+      spyOn(_webDevTec_, 'getTec').and.returnValue(_$q_.when([{}, {}, {}, {}, {}]));
 
       vm = _$controller_('HomeController');
-      $timeout = _$timeout_;
+      $rootScope = _$rootScope_;
     }));
 
-    it('should define more than 5 awesome things', function() {
+    it('should define more than 5 awesome things', function () {
+      $rootScope.$apply();
       expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
-      expect(vm.awesomeThings.length === 5).toBeTruthy();
+      expect(vm.awesomeThings.length >= 5).toBeTruthy();
     });
   });
 })();

@@ -18,11 +18,15 @@
     }
 
     function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
+      webDevTec.getTec()
+        .then(function (data) {
+          angular.forEach(vm.data, function(awesomeThing) {
+            awesomeThing.rank = Math.random();
+          });
 
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
+          vm.awesomeThings = data;
+        });
+
     }
   }
 })();
