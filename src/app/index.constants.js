@@ -1,10 +1,9 @@
-/* global malarkey:false, moment:false */
+/* global moment:false */
 (function() {
   'use strict';
 
   angular
-    .module('projects')
-    .constant('malarkey', malarkey)
+    .module('bomVizinhoWeb')
     .constant('moment', moment);
 
 })();

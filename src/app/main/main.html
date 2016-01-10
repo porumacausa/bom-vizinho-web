@@ -1,25 +1,8 @@
 <div class="">
 
     <div>
-        <acme-navbar creation-date="main.creationDate"></acme-navbar>
+        <acme-navbar creation-date="vm.creationDate"></acme-navbar>
     </div>
 
-    <div class="jumbotron text-center main-banner">
-        <img src="assets/images/bom-vizinho-banner.png" alt="Bom Vizinho">
-    </div>
-
-    <div class="main-content">
-        <div class="row">
-            <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-                <div class="thumbnail">
-                    <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-                    <div class="caption">
-                        <h3>{{ awesomeThing.title }}</h3>
-                        <p>{{ awesomeThing.description }}</p>
-                        <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div ui-view></div>
 </div>

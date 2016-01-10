@@ -1,10 +1,12 @@
 {
-  "name": "projects",
+  "name": "bomVizinhoWeb",
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
     "start": "gulp serve",
+    "start:dist": "gulp serve:dist",
     "build": "gulp",
+    "test:watch": "gulp test:auto",
     "test": "gulp test"
   },
   "devDependencies": {

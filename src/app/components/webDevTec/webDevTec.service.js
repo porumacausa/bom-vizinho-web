@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-      .module('projects')
+      .module('bomVizinhoWeb')
       .service('webDevTec', webDevTec);
 
   /** @ngInject */
-  function webDevTec() {
+  function webDevTec($q, $timeout) {
     var data = [
       {
         'title': 'AngularJS',
@@ -67,7 +67,13 @@
     this.getTec = getTec;
 
     function getTec() {
-      return data;
+      var defer = $q.defer();
+
+      $timeout(function () {
+        defer.resolve(data);
+      }, 1000);
+
+      return defer.promise;
     }
   }
 

@@ -12,15 +12,12 @@
     var el;
     var timeInMs;
 
-    beforeEach(module('projects'));
+    beforeEach(module('bomVizinhoWeb'));
     beforeEach(inject(function($compile, $rootScope) {
       // spyOn(_$window_, 'moment').and.callThrough();
       // $window = _$window_;
 
-      timeInMs = new Date();
-      timeInMs = timeInMs.setHours(timeInMs.getHours() - 24);
-
-      el = angular.element('<acme-navbar creation-date="' + timeInMs + '"></acme-navbar>');
+      el = angular.element('<acme-navbar></acme-navbar>');
 
       $compile(el)($rootScope.$new());
       $rootScope.$digest();
@@ -32,14 +29,8 @@
       expect(el.html()).not.toEqual(null);
     });
 
-    it('should have isolate scope object with instanciate members', function() {
+    it('should have isolate scope object', function() {
       expect(vm).toEqual(jasmine.any(Object));
-
-      expect(vm.creationDate).toEqual(jasmine.any(Number));
-      expect(vm.creationDate).toEqual(timeInMs);
-
-      expect(vm.relativeDate).toEqual(jasmine.any(String));
-      expect(vm.relativeDate).toEqual('a day ago');
     });
 
     // it('should call Moment', function() {

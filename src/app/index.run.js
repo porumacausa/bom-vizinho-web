@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('projects')
+    .module('bomVizinhoWeb')
     .run(runBlock);
 
   /** @ngInject */
