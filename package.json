@@ -4,6 +4,7 @@
   "dependencies": {},
   "scripts": {
     "start": "gulp serve",
+    "start:dist": "gulp serve:dist",
     "build": "gulp",
     "test:watch": "gulp test:auto",
     "test": "gulp test"
