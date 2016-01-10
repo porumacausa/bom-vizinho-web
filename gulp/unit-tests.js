@@ -15,8 +15,9 @@ var pathSrcJs = [
 ];
 
 function runTests (singleRun, done) {
-  var reporters = ['progress'];
+  var reporters = ['dots'];
   var preprocessors = {};
+  var coverageReporter = {};
 
   pathSrcHtml.forEach(function(path) {
     preprocessors[path] = ['ng-html2js'];
@@ -26,7 +27,15 @@ function runTests (singleRun, done) {
     pathSrcJs.forEach(function(path) {
       preprocessors[path] = ['coverage'];
     });
-    reporters.push('coverage')
+    reporters.push('coverage');
+	
+	coverageReporter = {
+      reporters: [
+		{ type: 'text-summary' },
+		{ type: 'html' }
+	  ],
+	  dir: 'coverage/'
+    };
   }
 
   var localConfig = {
@@ -34,6 +43,7 @@ function runTests (singleRun, done) {
     singleRun: singleRun,
     autoWatch: !singleRun,
     reporters: reporters,
+	coverageReporter: coverageReporter,
     preprocessors: preprocessors
   };
 
