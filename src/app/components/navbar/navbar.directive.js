@@ -42,7 +42,9 @@
           templateUrl: 'app/components/navbar/login-modal/login-modal.html',
           controller: 'ModalInstanceController',
           controllerAs: 'vm',
+          bindToController: true,
           size: size,
+          keyboard: true,
           resolve: {
             items: function () {
               return vm.items;
