@@ -3,16 +3,11 @@
 
   angular
     .module('bomVizinhoWeb')
-    .directive('acmeNavbar', acmeNavbar)
-    .controller('LoginModalController', LoginModalController);
-
-    /** @ngInject */
-  function LoginModalController () {}
+    .directive('acmeNavbar', acmeNavbar);
 
   /** @ngInject */
   function acmeNavbar() {
     var directive = {
-      link: link,
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
@@ -25,7 +20,8 @@
     return directive;
 
     /* @ngInject */
-    function link(vm, $uibModal) {
+    function NavbarController($uibModal) {
+      var vm = this;
 
       // TODO: internationalize this
       vm.labels = {
@@ -35,42 +31,33 @@
         login: 'Login'
       };
 
-      // vm.openModal = openModal;
+      vm.openModal = openModal;
       vm.items = [1, 2];
 
-      activate();
+      function openModal (size) {
+        vm.items = ['item1', 'item2', 'item3'];
 
-      ///////////
+        var modalInstance = $uibModal.open({
+          animation: true,
+          templateUrl: 'app/components/navbar/login-modal/login-modal.html',
+          controller: 'ModalInstanceController',
+          controllerAs: 'vm',
+          size: size,
+          resolve: {
+            items: function () {
+              return vm.items;
+            }
+          }
+        });
 
-      function activate() {
-
+        modalInstance.result.then(function (selectedItem) {
+          vm.selected = selectedItem;
+        }, function () {
+          // $log.info('Modal dismissed at: ' + new Date());
+        });
       }
-      //
-      // function openModal (size) {
-      //   vm.items = ['item1', 'item2', 'item3'];
-      //   vm.animationsEnabled = true;
-      //   var modalInstance = $uibModal.open({
-      //     animation: true,
-      //     templateUrl: 'login-modal/login-modal.html',
-      //     controller: 'ModalInstanceController',
-      //     size: size,
-      //     resolve: {
-      //       items: function () {
-      //         return vm.items;
-      //       }
-      //     }
-      //   });
-      //
-      //   modalInstance.result.then(function (selectedItem) {
-      //     vm.selected = selectedItem;
-      //   }, function () {
-      //     // $log.info('Modal dismissed at: ' + new Date());
-      //   });
-      // }
-    }
 
-    /* @ngInject */
-    function NavbarController() {}
+    }
   }
 
 })();
