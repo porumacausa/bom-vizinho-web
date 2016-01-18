@@ -33,8 +33,8 @@
       });
 
     $urlRouterProvider.otherwise(function($injector) {
-        var $state = $injector.get('$state');
-        $state.go('site.home');
+      var $state = $injector.get('$state');
+      $state.go('site.home');
     });
   }
 

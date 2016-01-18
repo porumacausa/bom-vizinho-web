@@ -5,7 +5,7 @@
     .module('bomVizinhoWeb')
     .controller('HomeController', HomeController);
 
-  /** @ngInject */
+  /* @ngInject */
   function HomeController($timeout, webDevTec) {
     var vm = this;
 

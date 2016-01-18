@@ -8,9 +8,10 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li><a ui-sref="site.home">Home</a></li>
-        <li><a ui-sref="site.about">About</a></li>
-        <li><a ng-href="#">Contact</a></li>
+        <li><a ui-sref="site.home">{{ labels.home }}</a></li>
+        <li><a ui-sref="site.about">{{ labels.about }}</a></li>
+        <li><a ng-href="#">{{ labels.contact }}</a></li>
+        <li><a ng-href="#" ng-click="openModal('sm')">{{ labels.login }}</a></li>
       </ul>
     </div>
   </div>
