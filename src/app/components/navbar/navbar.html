@@ -8,10 +8,15 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li><a ui-sref="site.home">{{ vm.labels.home }}</a></li>
-        <li><a ui-sref="site.about">{{ vm.labels.about }}</a></li>
-        <li><a ng-href="#">{{ vm.labels.contact }}</a></li>
-        <li><a ng-href="#" ng-click="vm.openModal()">{{ vm.labels.login }}</a></li>
+        <li><a ui-sref="site.home" translate="bvz.Home">Home</a></li>
+        <li><a ui-sref="site.about" translate="bvz.About">About</a></li>
+        <li><a ng-href="#" translate="bvz.Contact">Contact</a></li>
+        <li><a ng-href="#" ng-click="vm.openModal()" translate="bvz.Login">Login</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="" ng-click="vm.changeLanguage('pt-PT')"><span class="label label-primary"><span class="flag-icon flag-icon-pt"></span>PT</span></a></li>
+        <li><a href="" ng-click="vm.changeLanguage('en-US')"><span class="label label-primary"><span class="flag-icon flag-icon-us"></span>US</span></a></li>
       </ul>
     </div>
   </div>

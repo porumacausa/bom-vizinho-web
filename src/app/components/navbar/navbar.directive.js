@@ -20,19 +20,16 @@
     return directive;
 
     /* @ngInject */
-    function NavbarController($uibModal) {
+    function NavbarController($uibModal, $translate) {
       var vm = this;
 
-      // TODO: internationalize this
-      vm.labels = {
-        home: 'Home',
-        about: 'About',
-        contact: 'Contact',
-        login: 'Login'
-      };
-
+      vm.changeLanguage = changeLanguage;
       vm.openModal = openModal;
       vm.items = [1, 2];
+
+      function changeLanguage(langCode) {
+        $translate.use(langCode);
+      }
 
       function openModal (size) {
         vm.items = ['item1', 'item2', 'item3'];
